@@ -1,4 +1,4 @@
-module github.com/ankorstore/yokai-http-template
+module github.com/greeniet87/test_yokai
 
 go 1.22
 
