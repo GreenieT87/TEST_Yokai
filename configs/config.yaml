@@ -1,5 +1,5 @@
 app:
-  name: http-app
+  name: gopher-app1
   version: 0.1.0
 modules:
   core:
@@ -45,6 +45,9 @@ modules:
   http:
     server:
       address: ":8080"
+      templates:
+        enabled: true
+        path: templates/*.htm
       trace:
         enabled: true
       metrics:
@@ -59,3 +62,18 @@ modules:
   trace:
     processor:
       type: noop
+  orm:
+    driver: postgres                                               # driver to use
+    dsn: "postgres:password@tcp(192.168.112.1localhost:5444/)/kk_test"     # database DSN to connect to
+    config:
+      dry_run: false                                            # disabled by default
+      skip_default_transaction: false                           # disabled by default
+      full_save_associations: false                             # disabled by default
+      prepare_stmt: false                                       # disabled by default
+      disable_automatic_ping: false                             # disabled by default
+      disable_foreign_key_constraint_when_migrating: false      # disabled by default
+      ignore_relationships_when_migrating: false                # disabled by default
+      disable_nested_transaction: false                         # disabled by default
+      allow_global_update: false                                # disabled by default
+      query_fields: false                                       # disabled by default
+      translate_error: false                                    # disabled by default

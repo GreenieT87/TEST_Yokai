@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/ankorstore/yokai/config"
@@ -23,6 +22,9 @@ func NewExampleHandler(config *config.Config) *ExampleHandler {
 // Handle handles HTTP requests.
 func (h *ExampleHandler) Handle() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		return c.String(http.StatusOK, fmt.Sprintf("Welcome to %s.", h.config.AppName()))
+		// return c.String(http.StatusOK, fmt.Sprintf("Welcome to %s.", h.config.AppName()))
+		return c.Render(http.StatusOK, "modal.htm", map[string]interface{}{
+			"name": h.config.AppName(),
+		})
 	}
 }

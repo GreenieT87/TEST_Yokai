@@ -1,0 +1,63 @@
+########################__SUPPORT__########################
+########################__Easy.Go__########################
+ easygo=# select id,description from region;
+  id |            description
+ ----+------------------------------------
+   7 | VRS Verbundraum
+  6 | Leipzig, Halle, Umland
+  8 | Verkehrsverbund Berlin Brandenburg
+  9 | Magdeburger Verkehrsbetriebe
+(4 rows)
+
+####__Sicherheits_Frage_löschen
+ select id,last_login,created,modified,login_type,control_question_id,control_question_answer,msisdn,email from user_profile_entity where msisdn = '
+ update user_profile_entity set control_question_id = null, control_question_answer = null where msisdn = '
+ 
+####__Account_löschen
+ select id,last_login,created,modified,control_question_id,control_question_answer,msisdn,email from user_profile_entity where email = '
+ Postman > delete
+ 
+
+#####################################################################################################################################################################################################################################
+########################___DOCKER___########################
+##################___Usefull_Container___###################
+##_Dockbix-Agent
+############################################################
+## docker run --name=dockbix-agent-xxl --net=host --privileged -v /:/rootfs -v /var/run:/var/run --restart unless-stopped -e "ZA_Server=192.168.120.34" -e "ZA_ServerActive=192.168.120.34" -d monitoringartist/dockbix-agent-xxl-limited:latest
+##
+##_Cadvisor
+############################################################
+## sudo docker run --volume=/:/rootfs:ro --volume=/var/run:/var/run:rw --volume=/sys:/sys:ro --volume=/var/lib/docker/:/var/lib/docker:ro --volume=/dev/disk/:/dev/disk:ro --publish=8080:8080 --detach=true --name=cadvisor google/cadvisor:latest
+##
+############################################################
+##################___Usefull_Commands___####################
+##_Named Stats for old Docker versions
+############################################################
+## docker stats $(docker ps --format={{.Names}})
+##
+############################################################
+
+
+awk '{print $1}' access.log | sort | uniq -c |sort -g
+awk '{print $1}' easygo_access.log.1 | sort | uniq -c |sort -g
+
+
+1 = offen
+4 = warten auf Zahlung
+5 = Zahlung erhalten
+3 = Versendet
+8 = Abgebrochen
+
+(?s)(?!.*DE_VODAFONE)^
+
+
+EasyGo2_?
+VCS ? svn?
+ITS ? mediawiki, Internes Redmine, Trac?
+
+
+openssl s_client -connect easygo.tafmobile.de:443 -servername easygo.tafmobile.de 2>/dev/null | openssl x509 -text
+
+
+
+https://www.scalyr.com/community/guides/zen-and-the-art-of-system-monitoring
