@@ -4,7 +4,7 @@ import (
 	"context"
 	"sync"
 
-	"github.com/foo/bar/internal/model"
+	"github.com/greeniet87/test_yokai/internal/model"
 	"gorm.io/gorm"
 )
 
